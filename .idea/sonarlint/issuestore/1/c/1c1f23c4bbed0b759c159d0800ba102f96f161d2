@@ -1,5 +1,5 @@
 
-Ukotlin:S1481@"6Remove this unused "flightLandingTime" local variable.(ª²·8¼ÂÙ•‚2
-Zkotlin:S14817"6Remove this unused "flightLandingDate" local variable.(¡¾è€ûÿÿÿÿ8¾ÂÙ•‚2
-Ukotlin:S1481&"6Remove this unused "flightTakeOffTime" local variable.(–Ê‚¿8¾ÂÙ•‚2
-Ukotlin:S1481"6Remove this unused "flightTakeOffDate" local variable.(ªÄ×‘8¾ÂÙ•‚2
+ekotlin:S66150" Remove this useless initializer.(˜·¾·8‘³ğ–‚2J$5160b82f-15cd-4784-bf67-400bc6f5e74f
+ekotlin:S6615/" Remove this useless initializer.(œãì¿8¢øğ–‚2J$b14fa6c8-5ede-41ea-9be3-df1d038844eb
+jkotlin:S6615" Remove this useless initializer.(œÕıÕÿÿÿÿÿ8ØÌñ–‚2J$d3a3b1c4-1ef5-4711-90e1-71359f443251
+Dkotlin:S6615" Remove this useless initializer.(ùâ€ÿıÿÿÿÿ8òâñ–‚2

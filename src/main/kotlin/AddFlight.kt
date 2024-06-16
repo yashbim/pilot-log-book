@@ -5,8 +5,6 @@ import java.time.format.DateTimeParseException
 import java.util.UUID
 
 fun addFlight(flights: MutableList<Flight>) {
-    insertDB()
-
     // Aircraft details
     println("Aircraft Make :")
     val flightMake = readln()
@@ -19,13 +17,13 @@ fun addFlight(flights: MutableList<Flight>) {
     println("TAKE OFF DATA ENTRY")
     println("TakeOff Airport:")
     val flightTakeOffAirport = readln()
-    val flightTakeOffDate: LocalDate? = null
-    val flightTakeOffTime: LocalTime? = null
+    var flightTakeOffDate: LocalDate? = null
+    var flightTakeOffTime: LocalTime? = null
 
     while (true){
         println("TakeOff Date (yyyy-mm-dd):")
         try {
-            val flightTakeOffDate = LocalDate.parse(readln())
+            flightTakeOffDate = LocalDate.parse(readln())
             break
         } catch (e: DateTimeParseException){
             println("Invalid date format. Use YYYY-MM-DD")
@@ -35,7 +33,7 @@ fun addFlight(flights: MutableList<Flight>) {
     while (true){
         println("TakeOff Time (HH:mm):")
         try {
-            val flightTakeOffTime = LocalTime.parse(readln())
+            flightTakeOffTime = LocalTime.parse(readln())
             break
         } catch (e: DateTimeParseException){
             println("Invalid time format. Use HH:MM")
@@ -46,13 +44,13 @@ fun addFlight(flights: MutableList<Flight>) {
     println("LANDING DATA ENTRY")
     println("Landing Airport:")
     val flightLandingAirport = readln()
-    val flightLandingDate: LocalDate? = null
-    val flightLandingTime: LocalTime? = null
+    var flightLandingDate: LocalDate? = null
+    var flightLandingTime: LocalTime? = null
 
     while (true){
         println("Landing Date (yyyy-mm-dd):")
         try {
-            val flightLandingDate = LocalDate.parse(readln())
+            flightLandingDate = LocalDate.parse(readln())
             break
         } catch (e: DateTimeParseException){
             println("Invalid date format. Use YYYY-MM-DD")}
@@ -61,14 +59,14 @@ fun addFlight(flights: MutableList<Flight>) {
     while (true){
         println("Landing Time (HH:mm):")
         try {
-            val flightLandingTime = LocalTime.parse(readln())
+            flightLandingTime = LocalTime.parse(readln())
             break
         } catch (e: DateTimeParseException) {
             println("Invalid time format. Use HH:MM")
         }
     } //landing date entry and validation
 
-    val uuid = UUID.randomUUID().toString() // random trx uuid 
+    val uuid = UUID.randomUUID().toString() // random trx uuid
 
     val flight = Flight(
         uuid,
@@ -86,6 +84,7 @@ fun addFlight(flights: MutableList<Flight>) {
     flights.add(flight)
     println("Flight added successfully!")
     displayInput(flight)
+    insertDB(flight)
 }
 
 fun displayInput(flight: Flight) {
@@ -105,41 +104,34 @@ fun displayInput(flight: Flight) {
             "\n Time          : ${flight.flightLandingTime}")
 }
 
-fun insertDB() {
-    val connection = getConnection()
+fun insertDB(flight: Flight) {
+    val sql = """
+        INSERT INTO flights (uuid, flightMake, flightModel, flightReg, flightTakeOffAirport, flightTakeOffDate, flightTakeOffTime, flightLandingAirport, flightLandingDate, flightLandingTime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """
 
-    if (connection != null) {
-        val query = "SELECT * FROM flights"
+    try {
+        val connection = getConnection()
+        val preparedStatement = connection!!.prepareStatement(sql)
 
-        try {
-            val statement = connection.createStatement()
-            val resultSet = statement.executeQuery(query)
+        preparedStatement.setString(1, flight.uuid)
+        preparedStatement.setString(2, flight.flightMake)
+        preparedStatement.setString(3, flight.flightModel)
+        preparedStatement.setString(4, flight.flightReg)
+        preparedStatement.setString(5, flight.flightTakeOffAirport)
+        preparedStatement.setDate(6, flight.flightTakeOffDate?.let { java.sql.Date.valueOf(it) })
+        preparedStatement.setTime(7, flight.flightTakeOffTime?.let { java.sql.Time.valueOf(it) })
+        preparedStatement.setString(8, flight.flightLandingAirport)
+        preparedStatement.setDate(9, flight.flightLandingDate?.let { java.sql.Date.valueOf(it) })
+        preparedStatement.setTime(10, flight.flightLandingTime?.let { java.sql.Time.valueOf(it) })
 
-            while (resultSet.next()) {
-                val uuid = resultSet.getString("uuid")
-                val flightMake = resultSet.getString("flightMake")
-                val flightModel = resultSet.getString("flightModel")
-                val flightReg = resultSet.getString("flightReg")
-                val flightTakeOffAirport = resultSet.getString("flightTakeOffAirport")
-                val flightTakeOffDate = resultSet.getDate("flightTakeOffDate")
-                val flightTakeOffTime = resultSet.getTime("flightTakeOffTime")
-                val flightLandingAirport = resultSet.getString("flightLandingAirport")
-                val flightLandingDate = resultSet.getDate("flightLandingDate")
-                val flightLandingTime = resultSet.getTime("flightLandingTime")
-
-                println("UUID: $uuid, Make: $flightMake, Model: $flightModel, Reg: $flightReg, " +
-                        "TakeOff Airport: $flightTakeOffAirport, TakeOff Date: $flightTakeOffDate, " +
-                        "TakeOff Time: $flightTakeOffTime, Landing Airport: $flightLandingAirport, " +
-                        "Landing Date: $flightLandingDate, Landing Time: $flightLandingTime")
-            }
-        } catch (e: SQLException) {
-            e.printStackTrace()
-        } finally {
-            try {
-                connection.close()
-            } catch (e: SQLException) {
-                e.printStackTrace()
-            }
+        val rowsInserted = preparedStatement.executeUpdate()
+        if (rowsInserted > 0) {
+            println("A new flight was inserted successfully!")
         }
+
+        preparedStatement.close()
+        connection.close()
+    } catch (e: SQLException) {
+        e.printStackTrace()
     }
 }
