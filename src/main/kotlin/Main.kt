@@ -16,7 +16,7 @@ fun main() {
         val option = readln()
 
         when (option) {
-            "1" -> addFlight(flights) // calls the addFlight function to add a flight
+            "1" -> addFlight(flights)
             "2" -> deleteFlight(flights) // calls the deleteFlight function to delete a flight
             "3" -> updateFlight(flights) // calls the updateFlight function to update a flight
             "4" -> viewFlights(flights) // calls the viewFlights function to view all flights

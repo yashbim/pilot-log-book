@@ -85,3 +85,9 @@ w
 G.idea/sonarlint/issuestore/a/a/aa9c4f73a99126d1c5c9a0978ade9aa5f37598e8,b\5\b5694b412a812603e38db8de81e077f4b6a8c465
 G
 src/main/sql/create.sql,e\5\e5ce5fc9488d2575d15b9c8909c165f145116832
+N
+database/sql/create_db/sql.kts,4\e\4e2557ee4144a5b1601d46af1534b843fb474052
+J
+database/sql/create_db.sql,a\8\a8c6de7c0d227ef156d542b3fd3da46a6f9901d3
+S
+#src/main/kotlin/mysql_connection.kt,c\4\c46401b7da3e5be0175a33040285063f7aab794f
