@@ -27,26 +27,43 @@ fun addFlight(flights: MutableList<Flight>) {
         } catch (e: DateTimeParseException){
             println("Invalid date format. Use YYYY-MM-DD")
         }
-    }
+    } //takeoff date entry and validation
 
-    while(true){
+    while (true){
         println("TakeOff Time (HH:mm):")
         try {
             val flightTakeOffTime = LocalTime.parse(readln())
             break
         } catch (e: DateTimeParseException){
-            println("Invalid date format. Use HH:MM")
+            println("Invalid time format. Use HH:MM")
         }
-    }
+    } //takeoff time entry and validation
 
     // LANDING
     println("LANDING DATA ENTRY")
     println("Landing Airport:")
     val flightLandingAirport = readln()
-    println("Landing Date (yyyy-mm-dd):")
-    val flightLandingDate = LocalDate.parse(readln())
-    println("Landing Time (HH:mm):")
-    val flightLandingTime = LocalTime.parse(readln())
+    val flightLandingDate: LocalDate? = null
+    val flightLandingTime: LocalTime? = null
+
+    while (true){
+        println("Landing Date (yyyy-mm-dd):")
+        try {
+            val flightLandingDate = LocalDate.parse(readln())
+            break
+        } catch (e: DateTimeParseException){
+            println("Invalid date format. Use YYYY-MM-DD")}
+    } //landing date entry and validation
+
+    while (true){
+        println("Landing Time (HH:mm):")
+        try {
+            val flightLandingTime = LocalTime.parse(readln())
+            break
+        } catch (e: DateTimeParseException) {
+            println("Invalid time format. Use HH:MM")
+        }
+    } //landing date entry and validation
 
     val uuid = UUID.randomUUID().toString() // random trx uuid
 

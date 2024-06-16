@@ -10,6 +10,6 @@ data class Flight(
     var flightTakeOffDate: LocalDate?,
     var flightTakeOffTime: LocalTime?,
     var flightLandingAirport: String,
-    var flightLandingDate: LocalDate,
-    var flightLandingTime: LocalTime
+    var flightLandingDate: LocalDate?,
+    var flightLandingTime: LocalTime?
 )
