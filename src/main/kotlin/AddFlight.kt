@@ -1,5 +1,6 @@
 import java.time.LocalDate
 import java.time.LocalTime
+import java.time.format.DateTimeParseException
 import java.util.UUID
 
 fun addFlight(flights: MutableList<Flight>) {
@@ -15,10 +16,28 @@ fun addFlight(flights: MutableList<Flight>) {
     println("TAKE OFF DATA ENTRY")
     println("TakeOff Airport:")
     val flightTakeOffAirport = readln()
-    println("TakeOff Date (yyyy-mm-dd):")
-    val flightTakeOffDate = LocalDate.parse(readln())
-    println("TakeOff Time (HH:mm):")
-    val flightTakeOffTime = LocalTime.parse(readln())
+    val flightTakeOffDate: LocalDate? = null
+    val flightTakeOffTime: LocalTime? = null
+
+    while (true){
+        println("TakeOff Date (yyyy-mm-dd):")
+        try {
+            val flightTakeOffDate = LocalDate.parse(readln())
+            break
+        } catch (e: DateTimeParseException){
+            println("Invalid date format. Use YYYY-MM-DD")
+        }
+    }
+
+    while(true){
+        println("TakeOff Time (HH:mm):")
+        try {
+            val flightTakeOffTime = LocalTime.parse(readln())
+            break
+        } catch (e: DateTimeParseException){
+            println("Invalid date format. Use HH:MM")
+        }
+    }
 
     // LANDING
     println("LANDING DATA ENTRY")
