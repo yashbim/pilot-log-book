@@ -1,1 +1,3 @@
-fun viewFlights(flight: MutableList<Flight>){}
+fun viewFlights(flight: MutableList<Flight>){
+
+}

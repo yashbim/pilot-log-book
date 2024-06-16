@@ -65,7 +65,7 @@ fun addFlight(flights: MutableList<Flight>) {
         }
     } //landing date entry and validation
 
-    val uuid = UUID.randomUUID().toString() // random trx uuid
+    val uuid = UUID.randomUUID().toString() // random trx uuid 
 
     val flight = Flight(
         uuid,

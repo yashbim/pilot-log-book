@@ -1,10 +1,6 @@
 
 G
 src/main/kotlin/Main.kt,d\8\d83ae3847b7d408136086cc5e9e95f5f7c126ed5
-J
-src/main/kotlin/Flights.kt,9\8\98fa5a04d718e70c88de64102b3601fe659acf7d
-M
-src/main/kotlin/addFlights.kt,d\3\d38f7b92c63d2aa80afafddd294ff6d09fe6301b
 O
 src/main/kotlin/DeleteFlight.kt,e\3\e3f31ab263cf176c8609dd3f8fc62e53dde4e6f5
 O
@@ -87,3 +83,5 @@ G.idea/sonarlint/issuestore/c/5/c5e3b31709c305df312998ee39d7a171241162be,6\7\67
 Q.idea/sonarlint/securityhotspotstore/c/5/c5e3b31709c305df312998ee39d7a171241162be,7\5\75c8734ce429ca83a3cf60de52228ddff42dbc0b
 w
 G.idea/sonarlint/issuestore/a/a/aa9c4f73a99126d1c5c9a0978ade9aa5f37598e8,b\5\b5694b412a812603e38db8de81e077f4b6a8c465
+G
+src/main/sql/create.sql,e\5\e5ce5fc9488d2575d15b9c8909c165f145116832
