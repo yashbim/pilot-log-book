@@ -2,36 +2,6 @@ import java.time.LocalDate
 import java.time.LocalTime
 import java.util.UUID
 
-data class Flight(
-    val uuid: String,
-    val flightMake: String,
-    val flightModel: String,
-    val flightReg: String,
-    val flightTakeOffAirport: String,
-    val flightTakeOffDate: LocalDate,
-    val flightTakeOffTime: LocalTime,
-    val flightLandingAirport: String,
-    val flightLandingDate: LocalDate,
-    val flightLandingTime: LocalTime
-) {
-    fun displayInput() {
-        val uuidStr = uuid.toString()
-        println("Flight ID : $uuid\n${"-".repeat(uuidStr.length + 12)}")
-        println("AIRCRAFT DATA" +
-                "\n Make          : $flightMake" +
-                "\n Model         : $flightModel" +
-                "\n Registration  : $flightReg")
-        println("TAKEOFF DATA" +
-                "\n Airport       : $flightTakeOffAirport" +
-                "\n Date          : $flightTakeOffDate" +
-                "\n Time          : $flightTakeOffTime")
-        println("LANDING DATA" +
-                "\n Airport       : $flightLandingAirport" +
-                "\n Date          : $flightLandingDate" +
-                "\n Time          : $flightLandingTime")
-    }
-}
-
 fun addFlight(flights: MutableList<Flight>) {
     // Aircraft details
     println("Aircraft Make :")
@@ -76,4 +46,21 @@ fun addFlight(flights: MutableList<Flight>) {
 
     flights.add(flight)
     println("Flight added successfully!")
+}
+
+fun displayInput(flight: Flight) {
+    val uuidStr = flight.uuid.toString()
+    println("Flight ID : ${flight.uuid}\n${"-".repeat(uuidStr.length + 12)}")
+    println("AIRCRAFT DATA" +
+            "\n Make          : ${flight.flightMake}" +
+            "\n Model         : ${flight.flightModel}" +
+            "\n Registration  : ${flight.flightReg}")
+    println("TAKEOFF DATA" +
+            "\n Airport       : ${flight.flightTakeOffAirport}" +
+            "\n Date          : ${flight.flightTakeOffDate}" +
+            "\n Time          : ${flight.flightTakeOffTime}")
+    println("LANDING DATA" +
+            "\n Airport       : ${flight.flightLandingAirport}" +
+            "\n Date          : ${flight.flightLandingDate}" +
+            "\n Time          : ${flight.flightLandingTime}")
 }

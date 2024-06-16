@@ -1,2 +1,1 @@
-class ViewFlights {
-}
+fun viewFlights(flight: MutableList<Flight>){}

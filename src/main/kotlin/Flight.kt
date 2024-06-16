@@ -6,10 +6,10 @@ data class Flight(
     val flightMake: String,
     val flightModel: String,
     val flightReg: String,
-    val flightTakeOffAirport: String,
-    val flightTakeOffDate: LocalDate,
-    val flightTakeOffTime: LocalTime,
-    val flightLandingAirport: String,
-    val flightLandingDate: LocalDate,
-    val flightLandingTime: LocalTime
+    var flightTakeOffAirport: String,
+    var flightTakeOffDate: LocalDate,
+    var flightTakeOffTime: LocalTime,
+    var flightLandingAirport: String,
+    var flightLandingDate: LocalDate,
+    var flightLandingTime: LocalTime
 )

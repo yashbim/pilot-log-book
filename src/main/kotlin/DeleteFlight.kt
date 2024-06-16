@@ -1,2 +1,3 @@
-class DeleteFlight {
+fun deleteFlight(flights: MutableList<Flight>){
+
 }

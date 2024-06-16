@@ -1,2 +1,3 @@
-class UpdateFlight {
+fun updateFlight(flight: MutableList<Flight>){
+
 }

@@ -28,7 +28,7 @@ fun main() {
     // Display all flight records
     println("\nAll Entered Flight Records:")
     flights.forEach { flight ->
-        flight.displayInput()
+        displayInput(flight)
         println()
     }
 }
