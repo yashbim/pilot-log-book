@@ -43,8 +43,6 @@ w
 G.idea/sonarlint/issuestore/1/c/1c1f23c4bbed0b759c159d0800ba102f96f161d2,4\7\477c50aa9c4017dac16e0a3654276ece013ffdb1
 w
 G.idea/sonarlint/issuestore/5/f/5f50ec2f791586e4bbc45f2f3bb32481fe0f0541,9\8\98991ed68d535cd86f2e873e763a1ee62eefd3bf
-Å
-Q.idea/sonarlint/securityhotspotstore/a/a/aa9c4f73a99126d1c5c9a0978ade9aa5f37598e8,d\5\d5ea888f79846d2b2e2e30e762933bc4535040bd
 w
 G.idea/sonarlint/issuestore/5/d/5daf28de8399492ffc4d7ffa22ed5f0bcdd9308d,e\a\eab3cec1f76ffd6a84c427d56e9d1ec34b9a9cd6
 w
@@ -79,8 +77,6 @@ w
 G.idea/sonarlint/issuestore/c/5/c5e3b31709c305df312998ee39d7a171241162be,6\7\67b54c3eaebbf4b3beea7ab8fbc176ea325fefa2
 Å
 Q.idea/sonarlint/securityhotspotstore/c/5/c5e3b31709c305df312998ee39d7a171241162be,7\5\75c8734ce429ca83a3cf60de52228ddff42dbc0b
-w
-G.idea/sonarlint/issuestore/a/a/aa9c4f73a99126d1c5c9a0978ade9aa5f37598e8,b\5\b5694b412a812603e38db8de81e077f4b6a8c465
 J
 database/sql/create_db.sql,a\8\a8c6de7c0d227ef156d542b3fd3da46a6f9901d3
 S

@@ -128,7 +128,6 @@ fun insertDB(flight: Flight) {
         if (rowsInserted > 0) {
             println("A new flight was inserted successfully!")
         }
-
         preparedStatement.close()
         connection.close()
     } catch (e: SQLException) {
